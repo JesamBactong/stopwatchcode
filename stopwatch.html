@@ -1,0 +1,52 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #00FF00;
+        }
+
+        #time {
+            font-size: 5em;
+        }
+
+        #date {
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div id="stopwatch">
+        <span id="time"></span>
+        <br>
+        <span id="date"></span>
+    </div>
+
+    <script>
+        function updateTime() {
+            var now = new Date();
+            var h = now.getHours();
+            var m = now.getMinutes();
+            var s = now.getSeconds();
+            if (h < 10) h = "0" + h;
+            if (m < 10) m = "0" + m;
+            if (s < 10) s = "0" + s;
+            document.getElementById("time").innerText = h + ":" + m + ":" + s;
+            document.getElementById("date").innerText = now.toDateString();
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
